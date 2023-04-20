@@ -53,9 +53,9 @@ def pair_id_to_image_ids(pair_id):
     image_id1 = (pair_id - image_id2) / MAX_IMAGE_ID
     return image_id1, image_id2
 
-def vizualize_intrinsics_extrinsics(F, id1, id2):
+def vizualize_epipolars(F, id1, id2):
     # pts1_sample = match_positions[:, :2][20:30, :]
-    pts1_sample = np.array([ [800, 300], [400, 1000]])
+    pts1_sample = np.array([ [800, 300], [400, 1000], [100, 100], [600, 900], [850, 1200], [400, 1000], [100, 1500], [400, 1200], [800, 1000], [600, 1500]])
 
     num_points = pts1_sample.shape[0]
 
@@ -170,7 +170,7 @@ def check():
             # shoudl be zero
             print("diff", left-right)
 
-            vizualize_intrinsics_extrinsics(F, cam1, cam2)
+            vizualize_epipolars(F, cam1, cam2)
 
 
     cursor.close()
